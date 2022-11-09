@@ -6,7 +6,7 @@ namespace DylanPham
 {
     public class Aquarium : MonoBehaviour
     {
-        [SerializeField] List<FishStats> fish = new List<FishStats>();
+        [SerializeField] List<Fish> fish = new List<Fish>();
 
         private void Start()
         {
