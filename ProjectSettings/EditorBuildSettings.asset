@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/GAD170.2_Pham_Dylan/Scenes/Fishing Game.unity
     guid: 60575e53faf3f394f93ef6d812ef36d6
-  - enabled: 1
-    path: Assets/GAD170.2_Pham_Dylan/Scenes/EndScreen.unity
-    guid: 5353642840485c54790e7625667c4638
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

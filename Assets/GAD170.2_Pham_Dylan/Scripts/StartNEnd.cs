@@ -7,7 +7,7 @@ namespace DylanPham
 {
     public class StartNEnd : MonoBehaviour
     {
-        public void StartButton()
+        public void StartButton() //Coded myself
         {
             SceneManager.LoadScene(1);
         }
@@ -16,11 +16,6 @@ namespace DylanPham
         {
             Application.Quit();
             print("Damn bro... ok");
-        }
-
-        public void ReturnButton()
-        {
-            SceneManager.LoadScene(0);
         }
     }
 }

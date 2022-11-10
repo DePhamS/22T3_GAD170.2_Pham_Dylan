@@ -5,14 +5,15 @@ using TMPro;
 
 namespace DylanPham
 {
-    public class Fish : MonoBehaviour
+    public class Fish : MonoBehaviour 
     {
+        //Coded myself
+
         public string species;
         public float length = 0f;
         public int value;
 
-        [SerializeField] private string[] speciesArray = new string[7]; //{ "Bass", "Tuna", "Trout", "Perch", "Snapper", "Cod", "Shark" };
- 
+        [SerializeField] private string[] speciesArray = new string[7];
         public Fish(string newSpecies, float newLength, int newValue)
         {
             species = newSpecies;
@@ -20,7 +21,7 @@ namespace DylanPham
             value = newValue;
         }
         
-        void Start()
+        void Start() //Coded myself
         {
             Stats();
 
@@ -32,10 +33,10 @@ namespace DylanPham
             speciesArray[5] = "Cod";
             speciesArray[6] = "Shark";
         }
-        private void Stats()
+        private void Stats() //Coded myself
         {
-            // The code below will randomly select a fish species from the list
-            
+            // The code below will randomly select a fish species from the list as well as its length and value
+
             string randomSpecies = speciesArray[Random.Range(0, speciesArray.Length)];
             
             species = randomSpecies;

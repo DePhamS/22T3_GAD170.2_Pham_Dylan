@@ -9,28 +9,41 @@ namespace DylanPham
     public class Aquarium : MonoBehaviour
     {
         [SerializeField] List<Fish> fish = new List<Fish>();
-        private Fish smallestLength;
-        private float totalValue;
+        public float totalValue;
 
         [SerializeField] private GameObject fishPrefab;
         private GameObject newFishStart;
+        public bool fishRemove = false;
         public Fish newFish;
-
+        public GameObject activeGameUI;
+        public GameObject gameOverUI;
         public int counter;
 
-        //public TextMeshProUGUI counterText;
-
-       // public void FixUpdate()
-            //counterText.text = counter.ToString();
+        
 
         private void Start()
         {
             AddFish();
         }
 
-        public void KeepFishButton()
+        public void KeepFishButton() //Coded myself
         {
-            fish.Add(newFish);
+            fishRemove = false;
+            for (int i = 0; i < fish.Count; i++)
+            {
+                // Checking if the newFish length is 2x bigger than any fish in the list 
+
+                if (newFish.length >= fish[i].length * 2 && fishRemove == false) 
+                {
+                    Destroy(newFish.gameObject);
+                    Debug.Log("Fish has been EATEN!");
+                    totalValue -= fish[i].value;
+                    fish.Remove(fish[i]);
+
+                    fishRemove = true;
+                }
+            }
+            fish.Add(newFish); // adds the fish into the list
             totalValue += newFish.value;
 
             AddFish();
@@ -40,26 +53,30 @@ namespace DylanPham
             RoundCounter();
         }
 
-        public void ReleaseButton()
+        public void ReleaseButton() // Luka coded this
         {
-            Destroy(newFish.gameObject);
+            Destroy(newFish.gameObject); // this would remove the instantiated stats
 
             AddFish();
             counter++;
+            Debug.Log(counter);
 
             RoundCounter();
         }
-        public void AddFish()
+        public void AddFish() //Coded myself
         {
+            // This would create an instantiated fish prefrab and be assigned to newFish
+
             newFishStart = Instantiate(fishPrefab, transform);
             newFish = newFishStart.GetComponent<Fish>();
         }
 
-        private void RoundCounter()
+        private void RoundCounter() // Yovan coded this
         {
-            if (counter == 10)
+            if (counter == 10) // if the counter reaches 10, it'll overlay the gameOverUI
             {
-                SceneManager.LoadScene(2);
+                activeGameUI.SetActive(false);
+                gameOverUI.SetActive(true);
                 Debug.Log("Game Over");
             }
         }
